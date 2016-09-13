@@ -6,25 +6,60 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
+  <title>My AngularJS App 1</title>
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+  <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
   <link rel="stylesheet" href="app.css">
-  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  
 </head>
-<body>
-  <ul class="menu">
-    <li><a href="#!/view1">view1</a></li>
-    <li><a href="#!/view2">view2</a></li>
-  </ul>
+<body layout="column" ng-controller="MainMenuCtrl as mm" >
+  
+  <md-toolbar layout="row" class="md-whiteframe-3dp" >
+      <md-button class="menu" ng-click="mm.toggleMenuLeft()" aria-label="Show User List">
+        <md-icon md-svg-icon="menu" ></md-icon>
+      </md-button>
+      <h1>IG Application Template</h1>
+  </md-toolbar>
+
+  <div flex layout="row">
+    <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id='menuLeft' class="md-whiteframe-z3" >
+      <md-subheader ng-cloak>Azioni</md-subheader>
+      <md-list>
+        <md-list-item class="md-2-line" >
+          <img ng-src="#" class="md-avatar" alt="Act 1">
+          <div class="md-list-item-text">
+            <md-button class="md-primary">ACTION 1</md-button>
+          </div>
+          <md-divider ></md-divider>
+        </md-list-item>
+        <md-list-item class="md-2-line" >
+          <img ng-src="#" class="md-avatar" alt="Act 2">
+          <div class="md-list-item-text">
+            <md-button class="md-warn">ACTION 2</md-button>
+          </div>
+          <md-divider ></md-divider>
+        </md-list-item>
+        <md-list-item class="md-2-line" >
+          <img ng-src="#" class="md-avatar" alt="Act 2">
+          <div class="md-list-item-text">
+            <md-button class="md-fab" aria-label="FAB">
+              +
+            </md-button>
+
+          </div>
+          <md-divider ></md-divider>
+        </md-list-item>
+      </md-list>
+    </md-sidenav>
+
+    <md-content flex id="content" ng-view></md-content>
 
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
-
-  <div ng-view></div>
+  </div>
 
   <div>Angular seed app: v<span app-version></span></div>
 
@@ -33,6 +68,10 @@
   -->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="./bower_components/angular-animate/angular-animate.js"></script>
+  <script src="./bower_components/angular-aria/angular-aria.js"></script>
+  <script src="./bower_components/angular-material/angular-material.js"></script>
+  
   <script src="app.js"></script>
   <script src="view1/view1.js"></script>
   <script src="view2/view2.js"></script>
