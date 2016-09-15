@@ -3,3 +3,14 @@ md-toolbar h1 {
   font-size: 1.250em;
   font-weight: 400;
 }
+
+
+#master-fab {
+  position: fixed;
+  display: block;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 40px;
+  margin-right: 40px;
+  z-index: 900;
+}

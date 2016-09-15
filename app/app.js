@@ -9,10 +9,10 @@ angular.module('myApp', [
   'myApp.version'
 ]).
 config([
-  '$locationProvider', 
-  '$routeProvider', 
-  '$mdThemingProvider', 
-  '$mdIconProvider', 
+  '$locationProvider',
+  '$routeProvider',
+  '$mdThemingProvider',
+  '$mdIconProvider',
   function($locationProvider, $routeProvider, $mdThemingProvider, $mdIconProvider) {
 
 
@@ -24,15 +24,25 @@ config([
         .icon("hangouts"   , "./assets/svg/hangouts.svg"    , 512)
         .icon("twitter"    , "./assets/svg/twitter.svg"     , 512)
         .icon("phone"      , "./assets/svg/phone.svg"       , 512);
-    
-      //$mdThemingProvider.theme('default').primaryPalette('blue').accentPalette('lime');
-      
+
+      $mdThemingProvider.theme('default').primaryPalette('green').accentPalette('amber');
+
       $locationProvider.hashPrefix('!');
-      
+
       $routeProvider.otherwise({redirectTo: '/view1'});
 }])
-.controller('MainMenuCtrl', ['$mdSidenav', '$mdBottomSheet', function($mdSidenav, $mdBottomSheet) {
+.controller('MainMenuCtrl', ['$mdSidenav', '$mdBottomSheet', '$mdMedia', '$scope', function($mdSidenav, $mdBottomSheet, $mdMedia, $scope) {
   this.toggleMenuLeft = function() {
       $mdSidenav('menuLeft').toggle();
   };
+
+  this.isFabOpen = false;
+
+  $scope.$watch(function() {
+      return $mdMedia('gt-sm');
+    },
+    function(isBigScreen) {
+      $scope.showIconMenu = !isBigScreen;
+  });
+
 }]);
