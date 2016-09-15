@@ -32,17 +32,19 @@ config([
       $routeProvider.otherwise({redirectTo: '/view1'});
 }])
 .controller('MainMenuCtrl', ['$mdSidenav', '$mdBottomSheet', '$mdMedia', '$scope', function($mdSidenav, $mdBottomSheet, $mdMedia, $scope) {
-  this.toggleMenuLeft = function() {
+  var self = this;
+
+  self.toggleMenuLeft = function() {
       $mdSidenav('menuLeft').toggle();
   };
 
-  this.isFabOpen = false;
+  self.isFabOpen = false;
 
   $scope.$watch(function() {
       return $mdMedia('gt-sm');
     },
     function(isBigScreen) {
-      $scope.showIconMenu = !isBigScreen;
+      self.showIconMenu = !isBigScreen;
   });
 
 }]);
