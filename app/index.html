@@ -2,7 +2,10 @@
 <!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js">
+<!--<![endif]-->
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,64 +13,20 @@
   <meta name="description" content="">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
   <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
-  <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
+  <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css" />
   <link rel="stylesheet" href="app.css">
 
 </head>
-<body layout="row" ng-controller="MainMenuCtrl as mm" >
+
+<body layout="row">
 
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id='menuLeft' class="md-whiteframe-z3" layout="column"  md-colors="{background: 'blue-grey-700'}" >
-      <md-subheader ng-cloak md-colors="{background: 'blue-grey-800'}" >Azioni</md-subheader>
-      <md-list>
-        <md-list-item  ng-click="null" >
-          <md-icon md-svg-icon="cached"></md-icon>
-          <p>Action 1</p>
-        </md-list-item>
-        <md-list-item  ng-click="null" >
-          <md-icon md-svg-icon="cached"></md-icon>
-          <p>Action 2</p>
-        </md-list-item>
-        <md-list-item  ng-click="null" >
-          <md-icon md-svg-icon="cached"></md-icon>
-          <p>Action 3</p>
-        </md-list-item>
-      </md-list>
-    </md-sidenav>
-
-  <div flex layout="column">
-    <md-toolbar layout="row" class="md-whiteframe-3dp"  >
-      <md-button class="menu" ng-click="mm.toggleMenuLeft()" aria-label="Show User List" ng-show="mm.showIconMenu" >
-        <md-icon md-svg-icon="menu" ></md-icon>
-      </md-button>
-      <h1>IG Application Template</h1>
-    </md-toolbar>
-    <md-content id="content" class="md-padding" flex layout="column" ng-view></md-content>
-    <div class="md-padding" >Angular seed app: v<span app-version></span></div>
-  </div>
-
-  <md-fab-speed-dial ng-cloak class="md-fling md-fab-bottom-right" md-direction="up" md-open="mm.isFabOpen" >
-    <md-fab-trigger>
-      <md-button aria-label="menu" class="md-fab">
-        +
-      </md-button>
-    </md-fab-trigger>
-
-    <md-fab-actions>
-      <md-button aria-label="Twitter" class="md-fab md-mini">
-        -<!--<md-icon md-svg-src="img/icons/twitter.svg" aria-label="Twitter"></md-icon>-->
-      </md-button>
-      <md-button aria-label="Facebook" class="md-fab md-mini">
-
-      </md-button>
-      <md-button aria-label="Google Hangout" class="md-fab md-mini">
-
-      </md-button>
-    </md-fab-actions>
-  </md-fab-speed-dial>
+  <main-layout flex layout="row">
+    <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+  </main-layout>
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
@@ -79,10 +38,13 @@
   <script src="./bower_components/angular-material/angular-material.js"></script>
 
   <script src="app.js"></script>
+  <script src="layout/main-layout.component.js"></script>
+  <script src="phone/phone-list.component.js"></script>
   <script src="view1/view1.js"></script>
   <script src="view2/view2.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
 </body>
+
 </html>
