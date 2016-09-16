@@ -2,7 +2,7 @@
 
 /* https://github.com/angular/protractor/blob/master/docs/toc.md */
 
-describe('my app', function () {
+describe('My Application', function () {
 
 
   it('should automatically redirect to /view1 when location hash/fragment is empty', function () {
@@ -39,4 +39,27 @@ describe('my app', function () {
     });
 
   });
+
+  describe('phoneList', function() {
+
+    beforeEach(function() {
+      browser.get('index.html#!/phones');
+    });
+
+    it('should filter the phone list as a user types into the search box', function() {
+      var phoneList = element.all(by.repeater('phone in $ctrl.phones'));
+      var query = element(by.model('$ctrl.query'));
+
+      expect(phoneList.count()).toBe(3);
+
+      query.sendKeys('nexus');
+      expect(phoneList.count()).toBe(1);
+
+      query.clear();
+      query.sendKeys('motorola');
+      expect(phoneList.count()).toBe(2);
+    });
+
+  });
+
 });

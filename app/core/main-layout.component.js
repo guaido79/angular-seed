@@ -1,7 +1,7 @@
 angular.
     module('myApp')
     .component('mainLayout', {
-        templateUrl: 'layout/main-layout.template.html',
+        templateUrl: 'core/main-layout.template.html',
         controller: ['$mdSidenav', '$mdBottomSheet', '$mdMedia', '$scope', function MainLayoutController($mdSidenav, $mdBottomSheet, $mdMedia, $scope) {
             var self = this;
 

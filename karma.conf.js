@@ -11,10 +11,10 @@ module.exports = function(config) {
       'bower_components/angular-material/angular-material.js',
       'bower_components/angular-animate/angular-animate.js',
       'bower_components/angular-aria/angular-aria.js',
-      '*.js',
-      'components/**/*.js',
-      'view*/**/*.js'
-
+      '**/*.module.js',
+      '*!(.module|.spec).js',
+      '!(bower_components)/**/*!(.module|.spec).js',
+      '**/*.spec.js'
     ],
 
     autoWatch: true,

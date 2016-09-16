@@ -6,7 +6,8 @@ angular.module('myApp', [
   'ngMaterial',
   'myApp.view1',
   'myApp.view2',
-  'myApp.version'
+  'myApp.version',
+  'phoneList'
 ]).
   config([
     '$locationProvider',
