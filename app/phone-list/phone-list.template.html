@@ -1,18 +1,27 @@
 <div layout="row">
-    <div flex="20">
-        <!--Sidebar content-->
-        <md-input-container>
-            <label>Search</label>
-            <input ng-model="$ctrl.query">
-        </md-input-container>
+    <div flex="20" class="md-padding">
+        <div layout='column'>
+            <md-input-container>
+                <label>Search</label>
+                <input ng-model="$ctrl.query">
+            </md-input-container>
+            <md-input-container>
+                <label>Sort by</label>
+                <md-select ng-model="$ctrl.orderProp">
+                    <md-option value="name" class="ptTest" >Alphabetical</md-option>
+                    <md-option value="age">Newest</md-option>
+                </md-select>
+            </md-input-container>
+        </div>
     </div>
-    <div flex="80">
+    <div flex="80" class="md-padding">
         <md-list flex>
-            <md-list-item class="md-2-line" ng-repeat="phone in $ctrl.phones | filter:$ctrl.query" ng-click="null">
+            <md-list-item class="md-2-line" ng-repeat="phone in $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProp" ng-click="null">
                 <div class="md-list-item-text" layout="column">
                     <h3>{{phone.name}}</h3>
                     <h4>{{phone.snippet}}</h4>
                 </div>
+                <md-divider></md-divider>
             </md-list-item>
         </md-list>
     </div>
