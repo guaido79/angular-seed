@@ -29,6 +29,14 @@
                             <h4>{{$ctrl.phone.battery.standbyTime}}</h4>
                         </div>
                     </md-list-item>
+                    <md-list-item class="md-2-line" >
+                        <div class="md-list-item-text" layout="column">
+                            <h3>Infrared</h3>
+                            <h4>{{$ctrl.phone.connectivity.infrared | checkmark}}</h4>
+                            <h3>GPS</h3>
+                            <h4>{{$ctrl.phone.connectivity.gps | checkmark}}</h4>
+                        </div>
+                    </md-list-item>
                 </md-list>
             </div>
         </div>
