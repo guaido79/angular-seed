@@ -7,10 +7,12 @@ angular.
         });
     }])
     .component('phoneDetail', {
-        template: 'TBD: Detail view for <span>{{$ctrl.phoneId}}</span>',
-        controller: ['$routeParams', function PhoneDetailController($routeParams) {
+        templateUrl: 'phone-detail/phone-detail.template.html',
+        controller: ['$routeParams', '$http', function PhoneDetailController($routeParams, $http) {
             var self = this;
 
-            self.phoneId = $routeParams.phoneId;
+            $http.get('phones/' + $routeParams.phoneId + '.json').then(function (response) {
+                self.phone = response.data;
+            });
         }]
     });

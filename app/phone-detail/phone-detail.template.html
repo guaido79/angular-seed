@@ -1,0 +1,45 @@
+<md-card>
+
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">{{$ctrl.phone.name}}</span>
+            <span class="md-subhead">{{$ctrl.phone.description}}</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content layout="column">
+        <div flex layout-gt-xs="row" layout-xs='column' >
+            <img ng-src="{{$ctrl.phone.images[0]}}" />
+            <div>
+                <md-list flex>
+                    <md-subheader class="md-no-sticky">Availability and Networks</md-subheader>
+                    <md-list-item class="md-2-line" ng-repeat="availability in $ctrl.phone.availability" >
+                        <div class="md-list-item-text" layout="column">
+                            <h3>Availability</h3>
+                            <h4>{{availability}}</h4>
+                        </div>
+                    </md-list-item>
+                    <md-subheader class="md-no-sticky">Battery</md-subheader>
+                    <md-list-item class="md-2-line" >
+                        <div class="md-list-item-text" layout="column">
+                            <h3>Type</h3>
+                            <h4>{{$ctrl.phone.battery.type}}</h4>
+                            <h3>Talk Time</h3>
+                            <h4>{{$ctrl.phone.battery.talkTime}}</h4>
+                            <h3>Standby time (max)</h3>
+                            <h4>{{$ctrl.phone.battery.standbyTime}}</h4>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </div>
+        </div>
+
+        <div flex>
+            <md-grid-list class="phone-thumbs" md-cols-xs="2" md-cols-sm="4" md-cols-md="6" md-cols-gt-md="8" md-row-height-gt-md="1:1"
+                md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">
+                <md-grid-tile ng-repeat="img in $ctrl.phone.images">
+                    <img ng-src="{{img}}" />
+                </md-grid-tile>
+            </md-grid-list>
+        </div>
+    </md-card-content>
+</md-card>

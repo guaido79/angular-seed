@@ -14,3 +14,9 @@ md-toolbar h1 {
   margin-right: 40px;
   z-index: 900;
 }
+
+.phone-thumbs img {
+    height: 100px;
+    padding: 1em;
+    width: 100px;
+}
