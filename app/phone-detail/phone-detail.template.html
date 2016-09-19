@@ -8,7 +8,7 @@
     </md-card-title>
     <md-card-content layout="column">
         <div flex layout-gt-xs="row" layout-xs='column' >
-            <img ng-src="{{$ctrl.phone.images[0]}}" />
+            <img ng-src="{{$ctrl.mainImageUrl}}" />
             <div>
                 <md-list flex>
                     <md-subheader class="md-no-sticky">Availability and Networks</md-subheader>
@@ -44,7 +44,7 @@
         <div flex>
             <md-grid-list class="phone-thumbs" md-cols-xs="2" md-cols-sm="4" md-cols-md="6" md-cols-gt-md="8" md-row-height-gt-md="1:1"
                 md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">
-                <md-grid-tile ng-repeat="img in $ctrl.phone.images">
+                <md-grid-tile ng-repeat="img in $ctrl.phone.images" ng-click="$ctrl.setImage(img)"  >
                     <img ng-src="{{img}}" />
                 </md-grid-tile>
             </md-grid-list>
