@@ -1,1 +1,1 @@
-angular.module('phoneList', ['ngRoute', 'ngMaterial']);
+angular.module('phoneList', ['ngRoute', 'ngMaterial', 'core.phone']);
